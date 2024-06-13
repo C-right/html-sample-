@@ -1,0 +1,25 @@
+
+                    my extracted content can also be added here
+
+Functions can also be called using keyword arguments of the 
+form  kwarg=valu e. 
+During a function call, values passed through arguments don’t 
+need to be in the order of parameters in the function definition. 
+This can be achieved by keyword arguments. But all the 
+keyword arguments should match the parameters in the function 
+definition . 
+def add(a,b= 5,c=10): 
+    return  (a+b+c)  
+print (add(b =10,c=15,a=20)) 
+#Output:4 5 
+ 
+Positional Arguments in Pytho n 
+During a function call, values passed through arguments should 
+be in the order of parameters in the function definition. This is 
+called positional arguments . 
+Keyword arguments should follow positional arguments only . 
+def add(a,b,c ): 
+    retur n (a+b+c)  
+The above function can be called in two ways : 
+First, during the function call, all arguments are given as 
+positional arguments. Values passed through arguments are 

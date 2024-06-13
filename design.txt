@@ -1,0 +1,159 @@
+
+PLATFORM USED TO WORKED IN XAMP CONSOLE AND SHELL
+
+
+company name: Games and Rewards
+importaant notes:
+    - customers 
+        - firstname
+        - lastname
+        - email - UNIQUE
+        - password
+        - username - UNIQUE
+        - date of registration
+        - customer's current status
+            - active
+            - banned
+
+        - customer's level
+            - tier one
+            - tier two
+            - tier three
+
+
+
+CREATE TABLE IF NOT EXISTS `customers` (
+    `customer_id` INT PRIMARY KEY NOT NULL, ## THIS WILL MAKE U INSERT THE ID MANUALLY
+    `firstname` VARCHAR(100) NOT NULL,
+    `lastname` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) UNIQUE NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
+    `username` VARCHAR(100) UNIQUE NOT NULL,
+    `date_of_registration` TIMESTAMP NULL 
+);
+
+SELECT * FROM `customers`; 
+
+INSERT INTO `customers` (`firstname`, `lastname`, `email`, `password`, `username`,
+ `date_of_registration`) VALUES('James', 'Kelvin', 'james@gmail.com', 'password', 'jamesuser', 
+ NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `email`, `password`, `username`,
+ `date_of_registration`) VALUES('Shalewa', 'Amos', 'Amos@gmail.com', 'password', 'zaluesuser', 
+ NOW());
+
+ INSERT INTO `customers` (`firstname`, `lastname`, `email`, `password`, `username`,
+ `date_of_registration`) VALUES('Segun', 'alade', 'alas@gmail.com', 'pawword', 'seggeyuser', 
+ NOW());
+
+
+
+## THIS WILL CREATE THE ID AUTOMATICALLY
+CREATE TABLE IF NOT EXISTS`customers` (
+    `customer_id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    `firstname` VARCHAR(100) NOT NULL,
+    `lastname` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) UNIQUE NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
+    `username` VARCHAR(100) UNIQUE NOT NULL,
+    `date_of_registration` TIMESTAMP NULL 
+);
+
+    - staff
+        - firstname
+        - lastname
+        - role
+        - username
+        - password 
+        - email
+
+ ## THIS WILL MAKE U INSERT THE ID MANUALLY
+
+ CREATE TABLE IF NOT EXISTS `customers` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    `firstname` VARCHAR(200) NOT NULL,
+    `lastname` VARCHAR(200) NOT NULL,
+    `username` VARCHAR (200) NOT NULL,
+    `email` VARCHAR(200) UNIQUE NOT NULL,
+    `password` VARCHAR(200) NOT NULL,
+    `cassette_id` INT NOT NULL,
+    `registered_at` TIMESTAMP NOT NULL,
+    FOREIGN KEY (cassette_id) REFERENCES cassettes (id)
+);
+
+INSERT INTO `cyclobold` (`id`, `lastname`, `img`, `password`, 
+`registered_at`) VALUES (`1`, 'Abbey', 'url', 'cycy1', NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Ugochukwu', 'Jegede', 'JegeO', 'cyly@gmail.com', 'password', 2,
+NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Dr Olu', 'James', 'jerad', 'jerad@gmail.com', 'password', 3,
+NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Peace', 'Stanely', 'Osas_2', 'osads@gmail.com', 'password', 4,
+NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Chinoso', 'ThankGod', 'Nso', 'Nso@gmail.com', 'password', 5,
+NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Isaac', 'Jepthah', 'noneed', 'coomo@gmail.com', 'password', 6,
+NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Sayo', 'Adebayo', 'shyn', 'syno@gmail.com', 'password', 4,
+NOW());
+
+INSERT INTO `customers` (`firstname`, `lastname`, `username`, `email`, `password`, `cassette_id`, 
+`registered_at`) VALUES ('Segun', 'Emmanuel', 'manuel', 'nu@gmail.com', 'password', 3,
+NOW());
+
+   
+
+
+   CREATE TABLE IF NOT EXISTS `cassettes` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `title` VARCHAR (200) UNIQUE NOT NULL,
+    `description` VARCHAR (500) DEFAULT NULL,
+    `fee` VARCHAR (12),
+    `entry_date` TIMESTAMP 
+   );
+
+INSERT INTO `cassettes` (`title`, `description`, `fee`, `entry_date`) 
+VALUES('my wife and I', 'This movie is about myself and my wife dailing intrigues', '1000', NOW());
+
+INSERT INTO `cassettes` (`title`, `description`, `fee`, `entry_date`) 
+VALUES('Things fall apart', 'This movie is about things', '2000', NOW());
+
+INSERT INTO `cassettes` (`title`, `description`, `fee`, `entry_date`) 
+VALUES('Nigeria my country', 'This movie is about Nigeria and the bad administration', '5000', NOW());
+
+INSERT INTO `cassettes` (`title`, `description`, `fee`, `entry_date`) 
+VALUES('Cyclobold experience', 'My experience at cyclobold', '1500', NOW());
+
+INSERT INTO `cassettes` (`title`, `description`, `fee`, `entry_date`) 
+VALUES('Zainab the fine girl', 'This movie is about zainab', '2500', NOW());
+
+INSERT INTO `cassettes` (`title`, `description`, `fee`, `entry_date`) 
+VALUES('Ms jegede Matter', 'This movie is about Ms jegede', '2000', NOW());
+
+
+TO LINK THE tables together, perform the following functions:
+
+SELECT `customers`.*,`cassettes`.* from `customers` LEFT JOIN `cassettes` on `customers`.cassette_id = `cassettes`.id;
+
+TO HAVE A BETTER VIEW OF THE WORK YOU HAVE DONE, ADD BACK SLASH G TO YOUR CODE
+SELECT `customers`.*,`cassettes`.* from `customers` LEFT JOIN `cassettes` on `customers`.cassette_id = `cassettes`.id \G;
+
+
+CREATING A TABLE ON WORKBENCH 
+CREATE TABLE IF NOT EXISTS`CYCLOBOLD` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    `firstname` VARCHAR(100) NOT NULL,
+    `lastname` VARCHAR(100) NOT NULL,
+    `date_of_registration` TIMESTAMP NULL 
+);
